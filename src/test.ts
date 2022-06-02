@@ -76,3 +76,25 @@ test('promise fields', async () => {
 
   assert.equal(result, 'ok');
 });
+
+test('different promises', async () => {
+  function monster() {
+    return {
+      async async_method() {
+        return {
+          sync_field: {
+            async async_method() {
+              return async function async_function() {
+                return 'ok';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  const result = await _p(monster)().async_method().sync_field.async_method()();
+
+  assert.equal(result, 'ok');
+});

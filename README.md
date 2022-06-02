@@ -31,25 +31,6 @@ const success = await _p(StudentFactory)
 
 **Prain** awaits all promises in the chain, no matter where they are – in properties, functions, methods.
 
-```ts
-import _p from 'prain';
-
-const p = Promise.resolve({
-  async foo() {
-    return {
-      promiseField: Promise.resolve({
-        bar: 'resolved',
-      }),
-    };
-  },
-});
-
-await _p(p)
-  .foo()
-  .promiseField
-  .bar; // 'resolved'
-```
-
 See [tests](src/test.ts) for more examples and use cases.
 
 Made with love ❤️ and peace 🕊️.
