@@ -25,3 +25,9 @@ lib/
 .DS_Store
 desktop.ini
 thumbs.db
+
+# Credentials
+.npmrc
+
+# Coverage report
+.nyc_output
